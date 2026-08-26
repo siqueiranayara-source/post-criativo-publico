@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Criativo - Projeto Alura</title>
+    <style>
+        /* Reset e Fonte */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            padding: 20px;
+        }
+
+        /* Card principal com efeito Glassmorphism */
+        .post-card {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: scale(1.01);
+        }
+
+        /* Cabeçalho da Imagem */
+        .post-image {
+            position: relative;
+            height: 260px;
+            background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .post-image::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+            animation: shimmer 6s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            z-index: 2;
+        }
+
+        .post-image h1 {
+            color: #fff;
+            font-size: 2.8rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        /* Conteúdo */
+        .post-content {
+            padding: 32px 35px;
+            color: #e0e0e0;
+        }
+
+        .post-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            color: #a0a0b8;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
+        }
+
+        .post-meta span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tags .tag {
+            background: rgba(245, 87, 108, 0.2);
+            border: 1px solid rgba(245, 87, 108, 0.4);
+            color: #f5576c;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .post-content p {
+            line-height: 1.8;
+            color: #c8c8dd;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+
+        /* Ações (Botões) */
+        .post-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #f093fb, #f5576c);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #fff;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 87, 108, 0.5);
+            background: linear-gradient(90deg, #f5576c, #f093fb);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #c8c8dd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #f5576c;
+            color: #fff;
+        }
+
+        .share-icons {
+            margin-left: auto;
+            display: flex;
+            gap: 12px;
+        }
+
+        .share-icons button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            color: #a0a0b8;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-icons button:hover {
+            background: #f5576c;
+            color: #fff;
+            border-color: #f5576c;
+            transform: rotate(8deg);
+        }
+
+        /* Rodapé */
+        .post-footer {
+            padding: 18px 35px;
+            background: rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .post-footer a {
+            color: #f5576c;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .post-footer a:hover {
+            color: #f093fb;
+            letter-spacing: 1px;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            .post-image h1 {
+                font-size: 2rem;
+            }
+            .post-content {
+                padding: 25px;
+            }
+            .post-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .share-icons {
+                margin-left: 0;
+                justify-content: center;
+            }
+            .post-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="post-card">
+
+        <!-- Imagem de Destaque -->
+        <div class="post-image">
+            <span class="badge">✨ Destaque da Semana</span>
+            <h1>Meu<br>Projeto</h1>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="post-content">
+            <div class="post-meta">
+                <span>👤 Por: Seu Nome</span>
+                <span>📅 26 de Agosto, 2026</span>
+                <span>⏱️ 5 min de leitura</span>
+            </div>
+
+            <div class="tags">
+                <span class="tag">#HTML</span>
+                <span class="tag">#CSS</span>
+                <span class="tag">#Glassmorphism</span>
+                <span class="tag">#Alura</span>
+            </div>
+
+            <p>
+                Este é o meu post criativo desenvolvido para o desafio da Alura. 
+                Utilizei efeitos modernos como <strong>Glassmorphism</strong> (vidro fosco), 
+                gradientes vibrantes e animações suaves. Foi incrível aplicar todos 
+                os conceitos que aprendi durante as aulas!
+            </p>
+
+            <!-- Ações -->
+            <div class="post-actions">
+                <button class="btn-primary">❤️ Curtir (42)</button>
+                <button class="btn-secondary">💬 Comentar</button>
+                <div class="share-icons">
+                    <button title="Compartilhar">📤</button>
+                    <button title="Salvar">⭐</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="post-footer">
+            <span>🚀 Projeto feito com muito código e café ☕</span>
+            <a href="#">🔗 Ver repositório no GitHub</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
