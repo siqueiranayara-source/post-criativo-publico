@@ -214,6 +214,50 @@
             transform: rotate(8deg);
         }
 
+        /* Seção de Reações */
+        .reacoes {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .botao-reacao {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(245, 87, 108, 0.3);
+            color: #f5576c;
+            padding: 10px 16px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .botao-reacao:hover {
+            background: rgba(245, 87, 108, 0.2);
+            border-color: #f5576c;
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(245, 87, 108, 0.3);
+        }
+
+        .botao-reacao.ativo {
+            background: rgba(245, 87, 108, 0.3);
+            border-color: #f5576c;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .botao-reacao span {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
         /* Rodapé */
         .post-footer {
             padding: 18px 35px;
@@ -257,6 +301,9 @@
             .post-footer {
                 flex-direction: column;
                 text-align: center;
+            }
+            .reacoes {
+                justify-content: center;
             }
         }
     </style>
@@ -302,6 +349,15 @@
                     <button title="Salvar">⭐</button>
                 </div>
             </div>
+
+            <!-- Reações Interativas -->
+            <div class="reacoes">
+                <button class="botao-reacao" onclick="curtir(0)">❤️ <span id="contador0">0</span></button>
+                <button class="botao-reacao" onclick="curtir(1)">😂 <span id="contador1">0</span></button>
+                <button class="botao-reacao" onclick="curtir(2)">😮 <span id="contador2">0</span></button>
+                <button class="botao-reacao" onclick="curtir(3)">😢 <span id="contador3">0</span></button>
+                <button class="botao-reacao" onclick="curtir(4)">⭐ <span id="contador4">0</span></button>
+            </div>
         </div>
 
         <!-- Rodapé -->
@@ -311,6 +367,43 @@
         </div>
 
     </div>
+
+    <!-- Script para Reações -->
+    <script>
+        // Array para armazenar os contadores
+        const contadores = [0, 0, 0, 0, 0];
+        const botoes = document.querySelectorAll('.botao-reacao');
+
+        function curtir(index) {
+            // Incrementa o contador
+            contadores[index]++;
+            
+            // Atualiza o texto do contador
+            document.getElementById(`contador${index}`).textContent = contadores[index];
+            
+            // Adiciona classe ativa ao botão
+            botoes[index].classList.add('ativo');
+            
+            // Remove a classe após 600ms (efeito visual)
+            setTimeout(() => {
+                botoes[index].classList.remove('ativo');
+            }, 600);
+            
+            // Salva no localStorage
+            localStorage.setItem(`reacao${index}`, contadores[index]);
+        }
+
+        // Carrega os contadores do localStorage quando a página carrega
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 5; i++) {
+                const valor = localStorage.getItem(`reacao${i}`);
+                if (valor) {
+                    contadores[i] = parseInt(valor);
+                    document.getElementById(`contador${i}`).textContent = contadores[i];
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
