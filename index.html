@@ -18,7 +18,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #0a1e2e;
+            background: #1a1a1a;
             padding: 20px;
         }
 
@@ -26,27 +26,27 @@
         .post-card {
             max-width: 800px;
             width: 100%;
-            background: rgba(26, 58, 82, 0.8);
+            background: rgba(40, 40, 40, 0.8);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-radius: 32px;
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .post-card:hover {
             transform: scale(1.02);
-            box-shadow: 0 35px 70px rgba(0, 212, 255, 0.3);
-            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 35px 70px rgba(100, 100, 100, 0.3);
+            border-color: rgba(200, 200, 200, 0.2);
         }
 
         /* Cabeçalho da Imagem */
         .post-image {
             position: relative;
             height: 260px;
-            background: linear-gradient(90deg, #00b4d8 0%, #0096c7 100%);
+            background: linear-gradient(90deg, #404040 0%, #2a2a2a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -60,7 +60,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.2) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
             animation: shimmer 6s infinite linear;
         }
 
@@ -73,22 +73,28 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             backdrop-filter: blur(5px);
-            color: #00d4ff;
+            color: #e0e0e0;
             padding: 8px 18px;
             border-radius: 50px;
             font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 1px;
-            border: 1px solid rgba(0, 212, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(0, 0, 0, 0.8);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .post-image h1 {
             color: #fff;
             font-size: 2.8rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
             z-index: 1;
             font-weight: 800;
             letter-spacing: -1px;
@@ -97,14 +103,14 @@
         /* Conteúdo */
         .post-content {
             padding: 32px 35px;
-            color: #e0f4ff;
+            color: #d0d0d0;
         }
 
         .post-meta {
             display: flex;
             gap: 20px;
             font-size: 0.9rem;
-            color: #00d4ff;
+            color: #a0a0a0;
             margin-bottom: 18px;
             flex-wrap: wrap;
         }
@@ -123,9 +129,9 @@
         }
 
         .tags .tag {
-            background: rgba(0, 180, 216, 0.2);
-            border: 1px solid rgba(0, 212, 255, 0.4);
-            color: #00d4ff;
+            background: rgba(100, 100, 100, 0.2);
+            border: 1px solid rgba(150, 150, 150, 0.3);
+            color: #c0c0c0;
             padding: 4px 14px;
             border-radius: 20px;
             font-size: 0.75rem;
@@ -136,14 +142,15 @@
         }
 
         .tags .tag:hover {
-            background: rgba(0, 212, 255, 0.3);
+            background: rgba(100, 100, 100, 0.4);
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 4px 12px rgba(150, 150, 150, 0.2);
+            border-color: rgba(200, 200, 200, 0.4);
         }
 
         .post-content p {
             line-height: 1.8;
-            color: #c8dce8;
+            color: #b8b8b8;
             margin-bottom: 25px;
             font-size: 1.05rem;
         }
@@ -154,12 +161,12 @@
             gap: 15px;
             align-items: center;
             flex-wrap: wrap;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             padding-top: 25px;
         }
 
         .btn-primary {
-            background: linear-gradient(90deg, #00b4d8, #0096c7);
+            background: linear-gradient(90deg, #505050, #3a3a3a);
             border: none;
             padding: 12px 32px;
             border-radius: 50px;
@@ -168,33 +175,33 @@
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 180, 216, 0.3);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(150, 150, 150, 0.2);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 30px rgba(0, 212, 255, 0.5);
-            background: linear-gradient(90deg, #0096c7, #00b4d8);
+            box-shadow: 0 12px 30px rgba(100, 100, 100, 0.4);
+            background: linear-gradient(90deg, #3a3a3a, #505050);
         }
 
         .btn-secondary {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: rgba(100, 100, 100, 0.1);
+            border: 1px solid rgba(150, 150, 150, 0.2);
             padding: 12px 28px;
             border-radius: 50px;
             font-weight: 600;
-            color: #c8dce8;
+            color: #b8b8b8;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
-            background: rgba(0, 212, 255, 0.2);
-            border-color: #00d4ff;
+            background: rgba(100, 100, 100, 0.2);
+            border-color: #c0c0c0;
             color: #fff;
             transform: scale(1.02);
-            box-shadow: 0 6px 16px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 6px 16px rgba(150, 150, 150, 0.2);
         }
 
         .share-icons {
@@ -204,12 +211,12 @@
         }
 
         .share-icons button {
-            background: rgba(0, 212, 255, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: rgba(100, 100, 100, 0.1);
+            border: 1px solid rgba(150, 150, 150, 0.2);
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            color: #00d4ff;
+            color: #a0a0a0;
             font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -219,11 +226,11 @@
         }
 
         .share-icons button:hover {
-            background: rgba(0, 212, 255, 0.3);
+            background: rgba(150, 150, 150, 0.3);
             color: #fff;
-            border-color: #00d4ff;
+            border-color: #c0c0c0;
             transform: rotate(8deg) scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 6px 16px rgba(150, 150, 150, 0.3);
         }
 
         /* Seção de Reações */
@@ -233,13 +240,13 @@
             flex-wrap: wrap;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .botao-reacao {
-            background: rgba(0, 180, 216, 0.1);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-            color: #00d4ff;
+            background: rgba(100, 100, 100, 0.1);
+            border: 1px solid rgba(150, 150, 150, 0.2);
+            color: #a0a0a0;
             padding: 10px 16px;
             border-radius: 50px;
             font-size: 1rem;
@@ -252,17 +259,17 @@
         }
 
         .botao-reacao:hover {
-            background: rgba(0, 212, 255, 0.2);
-            border-color: #00d4ff;
+            background: rgba(100, 100, 100, 0.2);
+            border-color: #c0c0c0;
             transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 6px 16px rgba(150, 150, 150, 0.2);
         }
 
         .botao-reacao.ativo {
-            background: rgba(0, 212, 255, 0.3);
-            border-color: #00d4ff;
+            background: rgba(150, 150, 150, 0.3);
+            border-color: #c0c0c0;
             color: #fff;
-            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(150, 150, 150, 0.3);
         }
 
         .botao-reacao span {
@@ -274,7 +281,7 @@
         .post-footer {
             padding: 18px 35px;
             background: rgba(0, 0, 0, 0.3);
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -283,7 +290,7 @@
         }
 
         .post-footer a {
-            color: #00d4ff;
+            color: #b0b0b0;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -292,7 +299,62 @@
         .post-footer a:hover {
             color: #fff;
             letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+            text-shadow: 0 0 10px rgba(200, 200, 200, 0.3);
+        }
+
+        /* Seção de Comandos Git */
+        .git-commands {
+            background: rgba(25, 25, 25, 0.9);
+            border: 1px solid rgba(150, 150, 150, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .git-commands h3 {
+            color: #e0e0e0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .comando-git {
+            background: rgba(40, 40, 40, 0.8);
+            border-left: 4px solid #707070;
+            padding: 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .comando-git:hover {
+            background: rgba(50, 50, 50, 0.9);
+            border-left-color: #a0a0a0;
+            transform: translateX(5px);
+            box-shadow: 0 6px 16px rgba(150, 150, 150, 0.2);
+        }
+
+        .comando-git code {
+            color: #c0c0c0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .comando-descricao {
+            color: #808080;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .comando-git:hover .comando-descricao {
+            color: #909090;
         }
 
         /* Responsivo */
@@ -318,6 +380,9 @@
             .reacoes {
                 justify-content: center;
             }
+            .git-commands {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -342,15 +407,15 @@
             <div class="tags">
                 <span class="tag">#HTML</span>
                 <span class="tag">#CSS</span>
-                <span class="tag">#Glassmorphism</span>
+                <span class="tag">#Git</span>
                 <span class="tag">#Alura</span>
             </div>
 
             <p>
                 Este é o meu post criativo desenvolvido para o desafio da Alura. 
                 Utilizei efeitos modernos como <strong>Glassmorphism</strong> (vidro fosco), 
-                gradientes vibrantes e animações suaves. Foi incrível aplicar todos 
-                os conceitos que aprendi durante as aulas!
+                gradientes vibrantes e animações suaves. Além disso, aprendi a utilizar 
+                Git para controlar versões do projeto!
             </p>
 
             <!-- Ações -->
@@ -370,6 +435,61 @@
                 <button class="botao-reacao" onclick="curtir(2)">😮 <span id="contador2">0</span></button>
                 <button class="botao-reacao" onclick="curtir(3)">😢 <span id="contador3">0</span></button>
                 <button class="botao-reacao" onclick="curtir(4)">⭐ <span id="contador4">0</span></button>
+            </div>
+
+            <!-- Seção de Comandos Git -->
+            <div class="git-commands">
+                <h3>📚 Comandos Git Essenciais</h3>
+                
+                <div class="comando-git">
+                    <code>git init</code>
+                    <div class="comando-descricao">Inicializa um novo repositório Git no diretório</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git add .</code>
+                    <div class="comando-descricao">Adiciona todos os arquivos alterados ao staging</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git commit -m "mensagem"</code>
+                    <div class="comando-descricao">Faz um commit com uma mensagem descritiva</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git remote add origin https://github.com/usuario/repo.git</code>
+                    <div class="comando-descricao">Conecta o repositório local ao repositório remoto</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git push -u origin main</code>
+                    <div class="comando-descricao">Envia os commits para o repositório remoto</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git pull origin main</code>
+                    <div class="comando-descricao">Atualiza o repositório local com as mudanças remotas</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git branch -a</code>
+                    <div class="comando-descricao">Lista todas as branches locais e remotas</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git checkout -b nova-branch</code>
+                    <div class="comando-descricao">Cria e muda para uma nova branch</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git status</code>
+                    <div class="comando-descricao">Mostra o status atual do repositório</div>
+                </div>
+
+                <div class="comando-git">
+                    <code>git log --oneline</code>
+                    <div class="comando-descricao">Exibe o histórico de commits de forma resumida</div>
+                </div>
             </div>
         </div>
 
@@ -415,6 +535,21 @@
                     document.getElementById(`contador${i}`).textContent = contadores[i];
                 }
             }
+        });
+
+        // Copiar comando ao clicar
+        document.querySelectorAll('.comando-git').forEach(comando => {
+            comando.addEventListener('click', function() {
+                const texto = this.querySelector('code').textContent;
+                navigator.clipboard.writeText(texto);
+                
+                // Feedback visual
+                const original = this.querySelector('code').textContent;
+                this.querySelector('code').textContent = '✓ Copiado!';
+                setTimeout(() => {
+                    this.querySelector('code').textContent = original;
+                }, 1500);
+            });
         });
     </script>
 
